@@ -1,351 +1,896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Margaux Flores | Designer</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<!-- Main Meta Tags -->
-	<meta name="description" content="Web & print designer based in Tokyo.">
-  <meta name="keywords" content="designer,tokyo,web,print">
-	<!-- Open Graph Tags -->
-	<meta property="og:title" content="Margaux Flores - Designer">
-	<meta property="og:site_name" content="Margaux Flores - Designer">
-	<meta property="og:url" content="https://margauxflores.github.io">
-	<meta property="og:description" content="Web & print designer based in Tokyo.">
-	<meta property="og:type" content="website">
-	<meta property="og:image" content="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mfportfolio.jpg">
-	<!-- Twitter Card -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="https://margauxflores.github.io">
-	<meta name="twitter:title" content="Margaux Flores - Designer">
-	<meta name="twitter:description" content="Web & print designer based in Tokyo.">
-	<meta name="twitter:image" content="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mfportfolio.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Margaux Flores | Senior Frontend Engineer</title>
+  <meta name="description" content="Senior Frontend Engineer with 12+ years of experience. React, TypeScript, Next.js, Three.js. Building scalable design systems and AI-assisted dev workflows." />
 
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/favicon.ico" type="image/x-icon">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png" />
 
-	<!-- Dependencies -->
-	<!-- Magnific Popup -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-  <!-- Animate on Scroll -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <!-- Stylesheet -->
-  <link href="style.min.css" rel="stylesheet" type="text/css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://margauxflores.com/" />
+  <meta property="og:title" content="Margaux Flores | Senior Frontend Engineer" />
+  <meta property="og:description" content="Frontend engineer and technical leader with 12+ years across software engineering, digital strategy, and cross-cultural communication. React, TypeScript, Next.js, Three.js." />
+  <meta property="og:image" content="https://margauxflores.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Margaux Flores | Senior Frontend Engineer" />
+  <meta name="twitter:description" content="Frontend engineer and technical leader with 12+ years across software engineering, digital strategy, and cross-cultural communication." />
+  <meta name="twitter:image" content="https://margauxflores.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-hover: #1a1a26;
+      --text: #e8e6e3;
+      --text-dim: #8a8a9a;
+      --accent: #ff6b35;
+      --accent-glow: rgba(255, 107, 53, 0.15);
+      --accent2: #00d4aa;
+      --accent3: #7c5cfc;
+      --border: rgba(255, 255, 255, 0.06);
+      --font: 'Space Grotesk', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      background: rgba(10, 10, 15, 0.8);
+      border-bottom: 1px solid var(--border);
+      transition: transform 0.3s;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), #ff9a6c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #ff8555;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    /* ── FLOATING GRID BG ── */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.03;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .glow-orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow-orb-1 {
+      top: -200px;
+      right: -100px;
+      background: var(--accent);
+    }
+
+    .glow-orb-2 {
+      bottom: 20%;
+      left: -200px;
+      background: var(--accent3);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-number {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 1rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+
+    .skill-card:hover::before { transform: scaleX(1); }
+
+    .skill-card:hover {
+      border-color: rgba(255, 107, 53, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-card-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-dim);
+      transition: all 0.2s;
+    }
+
+    .skill-card:hover .skill-tag {
+      border-color: rgba(255, 107, 53, 0.15);
+      color: var(--text);
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent3), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(255, 107, 53, 0.4);
+    }
+
+    .timeline-item:first-child .timeline-dot {
+      width: 14px;
+      height: 14px;
+      left: -6px;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 16px rgba(255, 107, 53, 0.4); }
+      50% { box-shadow: 0 0 24px rgba(255, 107, 53, 0.7); }
+    }
+
+    .timeline-date {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-company {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-role {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 620px;
+    }
+
+    .timeline-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .timeline-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 4px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+
+    .contact-heading {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-heading .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-sub {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.25s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span { color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .hero { padding: 7rem 1.25rem 3rem; }
+      .hero-stats { gap: 2rem; flex-wrap: wrap; }
+      .stat-number { font-size: 2rem; }
+      section { padding: 4rem 1.25rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
 </head>
 <body>
-	<header>
-		<div class="logowrapper"><span>MF</span></div>
-		<div class="menuwrapper">
-			<nav>
-				<ul>
-					<li><a href="mailto:hi@margaux.me" target="_blank"><i class="fas fa-envelope"></i></a></li>
-					<li><a href="https://twitter.com/mrgxflrs" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-					<li><a href="https://www.linkedin.com/in/margauxflores/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-					<li><a href="https://github.com/margauxflores" target="_blank"><i class="fab fa-github"></i></a></li>
-	        <li><a href="https://instagram.com/mrgxflrs" target="_blank"><i class="fab fa-instagram"></i></a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<div class="wrapper">
-		<section id="hero" data-aos="fade-up" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor="center-center">
-			<div class="herotext">
-				<h1>Web & Print Designer</h1>
-				<hr align="left">
-				<h2>Margaux Flores</h2>
-			</div>
-			<div class="heroicon">
-				<i class="fas fa-laptop fa-10x"></i>
-			</div>
-			<div class="scrolldown" data-aos="fade-up" data-aos-duration="900" data-aos-easing="ease-out" data-aos-delay="500" data-aos-anchor-placement="top-bottom">
-				<h1>Works</h1>
-				<i class="fas fa-angle-down fa-5x"></i>
-			</div>
-		</section>
+  <div class="grid-bg"></div>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
 
-		<section id="works">
-			<!-- Mums in Business Website -->
-			<div class="work-block" data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="top-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mib.png">
-				</div>
-				<div class="work-title">
-					<span>001</span>
-					<h2>Mums in Business Tokyo</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Web Design</span>
-				</div>
-				<div class="copy">
-					<p>Mums in Business Tokyo is an organization of professional women who get together regularly sharing experiences on their careers and balancing working life and family. I designed and developed an SEO-ready Wordpress website for them and provided some tips and advice on simple social media and SEO strategies they can employ to strengthen their reach and community engagement.</p>
-				</div>
-				<div class="cta">
-					<a href="http://mumsinbusinesstokyo.com" target="_blank">Visit Site</a>
-				</div>
-			</div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">margaux<span>.</span></div>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-			<!-- Odigo Newsletter -->
-			<div class="work-block" data-aos="fade-left" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigonl.png">
-				</div>
-				<div class="work-title">
-					<span>002</span>
-					<h2>Odigo Newsletter</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Email Design</span>
-				</div>
-				<div class="copy">
-					<p>Odigo is a travel resource website inspiring foreign visitors to Japan. Using services like Mailchimp and Litmus, I was tasked with designing, coding and managing the company's bimonthly email campaigns which were sent to almost 30,000 subscribers.</p>
-				</div>
-				<div class="cta">
-					<a href="#gallery-1" class="btn-gallery">View Gallery</a>
-				</div>
-				<div id="gallery-1" class="hidden">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigonl/appcampaign-odigotravel.png">Mobile App Campaign</a>
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigonl/julycampaign-odigotravel.png">July Campaign</a>
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigonl/marchcampaign-odigotravel.png">March Campaign</a>
-				</div>
-			</div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-label">Senior Frontend Engineer</div>
+    <h1 class="fade-up">
+      I build things<br />
+      for the <span class="highlight">web.</span>
+    </h1>
+    <p class="hero-description fade-up">
+      Frontend engineer and technical leader with 12+ years across software engineering,
+      digital strategy, and cross-cultural communication. I specialize in scalable design systems,
+      full-stack product delivery, and rolling out AI-assisted dev workflows.
+      Trilingual in English, Japanese, and Tagalog.
+    </p>
+    <div class="hero-ctas fade-up">
+      <a href="#contact" class="btn btn-primary">Get in touch &#8599;</a>
+      <a href="https://linkedin.com/in/margauxflores" target="_blank" rel="noopener" class="btn btn-outline">View LinkedIn</a>
+    </div>
+    <div class="hero-stats fade-up">
+      <div>
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div>
+        <div class="stat-number">3</div>
+        <div class="stat-label">Languages Spoken</div>
+      </div>
+      <div>
+        <div class="stat-number">5+</div>
+        <div class="stat-label">OSS &amp; Side Projects</div>
+      </div>
+    </div>
+  </header>
 
-			<!-- Spotlight on Japan 2017 -->
-			<div class="work-block" data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/soj.png">
-				</div>
-				<div class="work-title">
-					<span>003</span>
-					<h2>Spotlight on Japan 2017</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Print Design</span>
-				</div>
-				<div class="copy">
-					<p>Spotlight on Japan was an event held by Mums in Business Tokyo and The Peninsula Hotel in celebration for the 2017 International Women's Day. I was tasked with designing their 30-page event brochure which featured interviews of their Spotlight Ambassadors.</p>
-				</div>
-				<div class="cta">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/SOJ2017.pdf" target="_blank">View PDF</a>
-				</div>
-			</div>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-card-label">Core Stack</div>
+        <h3>Frontend Engineering</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Vue.js</span>
+          <span class="skill-tag">Three.js</span>
+          <span class="skill-tag">Tailwind</span>
+          <span class="skill-tag">Vite</span>
+          <span class="skill-tag">GraphQL</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-card-label">Backend &amp; Data</div>
+        <h3>Full-Stack Capable</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">C# / .NET</span>
+          <span class="skill-tag">Golang</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Nuxt.js</span>
+          <span class="skill-tag">tRPC</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-card-label">Infrastructure</div>
+        <h3>Platform &amp; DevOps</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Cloud Run</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-card-label">Specializations</div>
+        <h3>What Sets Me Apart</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Design Systems</span>
+          <span class="skill-tag">AI-Assisted Dev Workflows</span>
+          <span class="skill-tag">A/B Testing</span>
+          <span class="skill-tag">TDD</span>
+          <span class="skill-tag">Cross-Cultural Communication</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-card-label">Testing &amp; Quality</div>
+        <h3>Reliable Code</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Jest</span>
+          <span class="skill-tag">Cypress</span>
+          <span class="skill-tag">SCSS</span>
+          <span class="skill-tag">Claude Code</span>
+          <span class="skill-tag">Cursor</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-card-label">Languages</div>
+        <h3>Trilingual</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">English (Native)</span>
+          <span class="skill-tag">Japanese (Professional)</span>
+          <span class="skill-tag">Tagalog (Native)</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			<!-- Odigo Company Info Card -->
-			<div class="work-block" data-aos="fade-left" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigocic.png">
-				</div>
-				<div class="work-title">
-					<span>004</span>
-					<h2>Odigo Info Card</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Print Design</span>
-				</div>
-				<div class="copy">
-					<p>Odigo is a travel resource website inspiring foreign visitors to Japan. I designed the company info cards which were handed out at the company's booth during the 2016 RISE Conference in Hong Kong.</p>
-				</div>
-				<div class="cta">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigo-info.pdf" target="_blank">View PDF</a>
-				</div>
-			</div>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Sep 2025 &ndash; Present</div>
+        <div class="timeline-company">Gaudiy, Inc.</div>
+        <div class="timeline-role">Senior Frontend Engineer &middot; Tokyo (Remote)</div>
+        <div class="timeline-desc">
+          Leading frontend across a client-facing AI demo product and a cross-product design system at this Web3/blockchain fan engagement platform. Built a Digital Twin PoC with React, Three.js, and FastAPI demoed to Aniplex and Sony. Architected a 3-layer design token system and standardized LLM-first dev workflows team-wide.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">React</span>
+          <span class="timeline-tag">Three.js</span>
+          <span class="timeline-tag">Design Tokens</span>
+          <span class="timeline-tag">AI Workflows</span>
+        </div>
+      </div>
 
-			<!-- Maria Paulina -->
-			<div class="work-block" data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mpec.png">
-				</div>
-				<div class="work-title">
-					<span>005</span>
-					<h2>Maria Paulina</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Graphic Design</span> <span class="tag">Email Design</span>
-				</div>
-				<div class="copy">
-					<p>Maria Paulina is a premium plus-sized clothing line specializing in elevated African prints. I designed three email campaigns for this new clothing line: a launch campaign, a Black Friday campaign and a Cyber Monday campaign.</p>
-				</div>
-				<div class="cta">
-					<a href="#gallery-2" class="btn-gallery">View Gallery</a>
-				</div>
-				<div id="gallery-2" class="hidden">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mp-1.jpg">30% Off Coupon</a>
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mp-2.jpg">Black Friday Coupon</a>
-				</div>
-			</div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Oct 2023 &ndash; Jul 2025</div>
+        <div class="timeline-company">Tailor, Inc.</div>
+        <div class="timeline-role">Frontend Engineer &middot; Tokyo (Remote)</div>
+        <div class="timeline-desc">
+          Console Application team at this Y Combinator-backed headless ERP startup ($22M Series A). Developed and enhanced the Console Application, the primary tool for managing Tailor platform workspaces and applications.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">Y Combinator</span>
+          <span class="timeline-tag">ERP Platform</span>
+          <span class="timeline-tag">Console App</span>
+        </div>
+      </div>
 
-			<!-- Odigo Email Signature -->
-			<div class="work-block" data-aos="fade-left" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigoes.png">
-				</div>
-				<div class="work-title">
-					<span>006</span>
-					<h2>Odigo Email Signature</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Graphic Design</span>
-				</div>
-				<div class="copy">
-					<p>Odigo is a travel resource website inspiring foreign visitors to Japan. Using email-friendly HTML code, I was tasked with designing and coding the company's official email signatures.</p>
-				</div>
-				<div class="cta">
-					<a href="#gallery-3" class="btn-gallery">View</a>
-				</div>
-				<div id="gallery-3" class="hidden">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/odigoesfull.png">Odigo Email Signature</a>
-				</div>
-			</div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Jun 2021 &ndash; Jun 2024</div>
+        <div class="timeline-company">JAMSTEC</div>
+        <div class="timeline-role">Full Stack Engineer (Contract) &middot; Yokohama (Remote)</div>
+        <div class="timeline-desc">
+          Built an analytics dashboard for fleet, equipment, and cruise evaluation. React/Next.js frontend with .NET 6/C# backend. Migrated evaluation data from spreadsheets to PostgreSQL and served as technical consultant for vendor projects.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">Next.js</span>
+          <span class="timeline-tag">.NET 6</span>
+          <span class="timeline-tag">PostgreSQL</span>
+        </div>
+      </div>
 
-			<!-- Storybook Events -->
-			<div class="work-block" data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="top-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/sbe.png">
-				</div>
-				<div class="work-title">
-					<span>007</span>
-					<h2>Storybook Events</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Web Design</span>
-				</div>
-				<div class="copy">
-					<p>Storybook Events offers a range of themed parties, each with music, dance and craft activities (plus plenty of fun and laughter!), for your little one's special day. I designed a website that reflects the clients' vibrant packages.</p>
-				</div>
-				<div class="cta">
-					<a href="http://storybookevents.jp" target="_blank">View Site</a>
-				</div>
-			</div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Jun 2021 &ndash; Sep 2023</div>
+        <div class="timeline-company">Mercari, Inc.</div>
+        <div class="timeline-role">Software Engineer &middot; Tokyo (Remote)</div>
+        <div class="timeline-desc">
+          Developed the shop and admin dashboard for Pacific League Exciting Moments (baseball NFTs). Owned the frontend release pipeline with GitHub Actions and GCP, and mentored external contractors.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">React</span>
+          <span class="timeline-tag">Vue.js</span>
+          <span class="timeline-tag">NFTs</span>
+          <span class="timeline-tag">GCP</span>
+        </div>
+      </div>
 
-			<!-- Mommy & Me -->
-			<div class="work-block" data-aos="fade-left" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mam.png">
-				</div>
-				<div class="work-title">
-					<span>008</span>
-					<h2>Mommy & Me Classes</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Graphic Design</span>
-				</div>
-				<div class="copy">
-					<p>Mommy & Me is a weekly class held by Claudia Vasquez at the Chataeu des Bambini Montessori School located in Minami Azabu. I designed an event flyer to be posted around the school in promotion of her class.</p>
-				</div>
-				<div class="cta">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/flyer-darker.pdf" target="_blank">View PDF</a>
-				</div>
-			</div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Aug 2020 &ndash; May 2021</div>
+        <div class="timeline-company">TAAL Technologies</div>
+        <div class="timeline-role">Software Engineer &amp; Team Lead &middot; Switzerland (Remote)</div>
+        <div class="timeline-desc">
+          Joined at inception. Built and led the UI/UX and Web Development team (2 junior engineers + 1 designer). Developed the customer portal, admin dashboard, and co-designed the company brand.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">Team Lead</span>
+          <span class="timeline-tag">Blockchain</span>
+          <span class="timeline-tag">Brand</span>
+        </div>
+      </div>
 
-			<!-- My Bungu Box -->
-			<div class="work-block" data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out" data-aos-anchor-placement="center-bottom">
-				<div class="screenshot">
-					<img src="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mbb.png" >
-				</div>
-				<div class="work-title">
-					<span>009</span>
-					<h2>My Bungu Box</h2>
-				</div>
-				<div class="category">
-					<span class="tag">Photography</span>
-				</div>
-				<div class="copy">
-					<p>My Bungu Box contains a selection of some of the best Japanese stationery, from erasable pens to beautifully patterned washi tape, where every box is a surprise! I took some product photos for the client for her social media content.</p>
-				</div>
-				<div class="cta">
-					<a href="#gallery-4" class="btn-gallery">View Gallery</a>
-				</div>
-				<div id="gallery-4" class="hidden">
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mbb/mbb-1.jpg">My Bungu Box Stationery Photography</a>
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mbb/mbb-2.jpg">My Bungu Box Stationery Photography</a>
-					<a href="https://s3-ap-northeast-1.amazonaws.com/mrgxflrsportfolio/mbb/mbb-3.jpg">My Bungu Box Stationery Photography</a>
-				</div>
-			</div>
-		</section>
-	</div>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb 2019 &ndash; Aug 2020</div>
+        <div class="timeline-company">bitFlyer Group, Inc.</div>
+        <div class="timeline-role">Frontend Engineer &middot; Tokyo</div>
+        <div class="timeline-desc">
+          Sole web frontend engineer across Japan, US, and EU platforms. Pioneered A/B testing that nearly tripled conversion while cutting CPA by 69%. Built the buy/sell platform from scratch and developed the T-Point exchange partnership with TSUTAYA.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">Vue.js</span>
+          <span class="timeline-tag">A/B Testing</span>
+          <span class="timeline-tag">3x Conversion</span>
+        </div>
+      </div>
 
-	<!-- Bio Section -->
-	<section id="bio">
-		<div class="firstcol" data-aos="fade-up" data-aos-delay="100" data-anchor-placement="center-bottom">
-				<div class="skill-title">
-					<span><i class="fas fa-pencil-ruler"></i></span>
-					<h4>Design</h4>
-				</div>
-				<div class="skill-list">
-					<ul>
-						<li>Sketch</li>
-						<li>Photoshop</li>
-						<li>Illustrator</li>
-						<li>InDesign</li>
-						<li>XD</li>
-						<li>Invision</li>
-						<li>Marvel</li>
-					</ul>
-				</div>
-			</div>
-			<div class="seccol" data-aos="fade-up" data-aos-delay="200">
-				<div class="skill-title">
-					<span><i class="fas fa-laptop-code"></i></span>
-					<h4>Languages</h4>
-				</div>
-				<div class="skill-list">
-					<ul>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>JavaScript</li>
-						<li>JQuery</li>
-						<li>PHP</li>
-					</ul>
-				</div>
-			</div>
-			<div class="thircol" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out" data-aos-delay="300">
-				<div class="skill-title">
-					<span><i class="fas fa-toolbox"></i></span>
-					<h4>Dev Tools</h4>
-				</div>
-				<div class="skill-list">
-					<ul>
-						<li>Gulp.js</li>
-						<li>Webpack</li>
-						<li>Git</li>
-						<li>CLI</li>
-						<li>MySQL</li>
-						<li>AWS</li>
-					</ul>
-				</div>
-			</div>
-	</section>
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2014 &ndash; Feb 2019</div>
+        <div class="timeline-company">Freelance</div>
+        <div class="timeline-role">Web Developer &amp; Digital Marketing Consultant &middot; Tokyo</div>
+        <div class="timeline-desc">
+          Independent consultant providing web development and digital marketing services, bridging technical implementation with marketing strategy for diverse clients across Japan.
+        </div>
+        <div class="timeline-highlights">
+          <span class="timeline-tag">Freelance</span>
+          <span class="timeline-tag">Digital Strategy</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- OPEN SOURCE -->
+  <section id="oss" style="padding-top: 0;">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Open Source</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skill-card fade-up" style="max-width: 540px;">
+      <div class="skill-card-label">Side Project</div>
+      <h3 style="margin-bottom: 0.5rem;">Synquora</h3>
+      <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem;">
+        Discord scheduling tool built with Next.js 15, Clerk, Supabase, and tRPC.
+      </p>
+      <div class="skill-tags">
+        <span class="skill-tag">Next.js 15</span>
+        <span class="skill-tag">Clerk</span>
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">tRPC</span>
+      </div>
+    </div>
+  </section>
 
-	<footer>
-		<span>&copy; Margaux Flores<br>
-			Hosted through <a href="https://github.com/margauxflores/portfolio" target="_blank">Github Pages</a>.</span>
-	</footer>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-	<!-- Animate on Scroll Script -->
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <h2 class="contact-heading fade-up">
+      Let's build something<br /><span class="highlight">together.</span>
+    </h2>
+    <p class="contact-sub fade-up">
+      Open to conversations about frontend engineering, design systems, AI dev tooling, and interesting problems.
+    </p>
+    <div class="contact-links fade-up">
+      <a href="mailto:margaux.flores@outlook.com" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+      <a href="https://linkedin.com/in/margauxflores" target="_blank" rel="noopener" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/margauxflores" target="_blank" rel="noopener" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        GitHub
+      </a>
+      <a href="https://x.com/margauxflores" target="_blank" rel="noopener" class="contact-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16h-4.267z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+        X / Twitter
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Margaux Flores. Built with <span>&hearts;</span> and hosted on GitHub Pages.</p>
+  </footer>
+
   <script>
-    AOS.init();
-    $(document).ready(function() {
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-		$('a.btn-gallery').on('click', function(event) {
-			event.preventDefault();
-			
-			var gallery = $(this).attr('href');
-	    
-			$(gallery).magnificPopup({
-	      delegate: 'a',
-				type:'image',
-				gallery: {
-					enabled: true
-				}
-			}).magnificPopup('open');
-		});
-		
-	});
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav hide on scroll down, show on scroll up
+    let lastScroll = 0;
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 100) {
+        nav.style.transform = 'translateY(-100%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      lastScroll = current;
+    });
   </script>
 </body>
 </html>
